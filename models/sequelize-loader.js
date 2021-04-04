@@ -1,13 +1,17 @@
 'use strict';
 const Sequelize = require('sequelize');
+const option = {
+	logging: false,
+	dialectOptions: {}
+};
+
+if (process.env.DATABASE_URL) {
+	option.dialectOptions.ssl = true;
+}
+
 const sequelize = new Sequelize(
 	process.env.DATABASE_URL || 'postgres://postgres:pass@localhost/schedule_arranger',
-	{
-		logging: false,
-		dialectOptions: {
-			ssl: true,
-		}
-	}
+	option
 );
 
 module.exports = {
