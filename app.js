@@ -92,6 +92,7 @@ app.get('/auth/github',
 	() => { console.log('★★★★★★auth/github　まできた★★★★') },
 	passport.authenticate('github', { scope: ['user:email'] }),
 	function (req, res) {
+		console.log('★★★★★★auth/github　まできた★★★★')
 	});
 
 app.get('/auth/github/callback',
