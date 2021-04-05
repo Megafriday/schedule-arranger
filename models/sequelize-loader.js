@@ -6,10 +6,10 @@ const option = {
 };
 
 if (process.env.DATABASE_URL) {
-	// option.dialectOptions.ssl = true;
+	option.dialectOptions.ssl = true;
 	// option.dialectOptions.rejectUnauthorized = false;
-	option.dialectOptions.ssl.require = true;
-	option.dialectOptions.ssl.rejectUnauthorized = false;
+	// option.dialectOptions.ssl.require = true;
+	// option.dialectOptions.ssl.rejectUnauthorized = false;
 }
 
 const sequelize = new Sequelize(
