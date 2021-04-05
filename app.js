@@ -89,14 +89,11 @@ app.use('/schedules', availabilitiesRouter);
 app.use('/schedules', commentsRouter);
 
 app.get('/auth/github',
-	() => { console.log('★★★★★★auth/github　まできた★★★★') },
 	passport.authenticate('github', { scope: ['user:email'] }),
 	function (req, res) {
-		console.log('★★★★★★auth/github　まできた★★★★')
 	});
 
 app.get('/auth/github/callback',
-	() => { console.log('★★★★★★auth/github/callback　まできた★★★★') },
 	passport.authenticate('github', { failureRedirect: '/login' }),
 	function (req, res) {
 		var loginFrom = req.cookies.loginFrom;
